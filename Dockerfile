@@ -1,4 +1,4 @@
-FROM alpine
+FROM frolvlad/alpine-glibc
 
 RUN apk add --update mercurial openssh-client && \
     apk info --purge
