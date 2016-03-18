@@ -1,9 +1,13 @@
-FROM alpine
+FROM rodrigomiguele/hg
 
-RUN apk add --update mercurial openssh-client && \
+ENTRYPOINT []
+CMD []
+USER 0
+WORKDIR /
+
+RUN apk add meld --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \
     apk info --purge
 
-RUN addgroup developer && adduser developer -G developer -h /home/developer -D
 USER developer
 WORKDIR /home/developer/workspace
 
